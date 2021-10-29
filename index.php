@@ -1,5 +1,4 @@
 <?php include 'header.php'; ?>
-<?php include "header.php";?>
     <section class="vh-100" style="background-color: #f0f2f5;">
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
