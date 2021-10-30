@@ -1,0 +1,50 @@
+.header{
+    position: fixed;
+    top:0;
+    left:0;
+    right:0;
+    z-index: 1;
+}
+
+.nav > li > a{
+    color: #fff;
+    text-decoration: none;  
+    font-size: 20px;   
+    padding: 8px 20px;
+    margin: 0 24px;  
+    line-height: 48px;   
+}
+
+.nav  li:hover  a{
+   font-size: 22px;
+   text-decoration: underline;
+}
+
+.nav #logo{
+    font-size: 27px;
+    font-weight: 550;
+    margin-right: 16px;
+    letter-spacing: 1px;
+}
+
+.nav li #logo{
+   text-decoration: none;
+}
+
+.nav .signout{
+    position: absolute;
+    top:-5px;
+    right: 0;
+    line-height: 48px;
+}
+
+.nav .icons-news{
+    position: relative;
+    top:0;
+    right: -200px;
+    margin-left: 100px;
+}
+
+
+
+

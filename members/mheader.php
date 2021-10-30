@@ -7,19 +7,17 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="../css/bootstrap.min.css">
-    
+    <link rel="stylesheet" href="../css/mheader.css">
+    <link rel="stylesheet" href="../font/themify-icons/themify-icons.css">
     <title>Face-Social</title>
   </head>
   <body>
-      <style>
-          .header{
-              position: fixed;
-              top:0;
-              left:0;
-              right:0;
-              z-index: 1;
-          }
-      </style>
-        <div class="header container-fluid bg-primary p-1">
-            <h2 style="padding-left: 6%; color:#fff;">Face-Social</h2>
-        </div>
+    <div class="header container-fluid bg-primary p-1">
+        <ul class="nav ">
+          <li><a href="./index.php" id="logo">Face-Social</a></li>
+          <li><a href="./news.php"class="icons-news"><i class="ti-desktop"></i></a></li>
+          <li><a href="./profile.php"class="icons-news"><i class="ti-user"></i></a></li>
+          <li><a href="./mesenger.php"class="icons-news"><i class="ti-email"></i></a></li>
+          <li><a href="../logout.php" class="signout">Đăng xuất</a></li>
+         </ul>
+    </div>
