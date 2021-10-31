@@ -1,11 +1,12 @@
 <?php
     session_start();
-    if(!isset($_SESSION['login'])){
-        header("Location:login.php");
+    if(!isset($_SESSION['loginSuccess'])){
+        header("Location:../index.php");
     }
-    include 'header.php';
+    include 'mheader.php';
  ?>
     <div class="container content" style="margin-top:52px;">
         <h2>Đây là trang chủ!</h2>
+        
     </div>
-<?php include 'footer.php'?>
+<?php include 'mfooter.php'?>

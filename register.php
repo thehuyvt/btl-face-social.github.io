@@ -114,6 +114,7 @@
         }
         
     }
+    mysqli_close($conn);
     
 ?>
 <?php include "footer.php";?>

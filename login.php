@@ -65,11 +65,13 @@
                 $pass_hash = $row['user_pass'];
 
                 if(password_verify($pass, $pass_hash)){
-                    $_SESSION['login'] = $user_name;
-                    echo' mật khẩu trùng khớp!';
-                    header("Location:homepage.php");
-                   
+
+                    $_SESSION['loginSuccess'] = $user_name;
+
+                    header("Location:./members/index.php");
+
                 }else{
+                    
                     echo 'Mật khẩu không khớp!';
 
                 }
@@ -81,5 +83,6 @@
             
             
         }
+        mysqli_close($conn);
     ?>
 <?php include 'footer.php'; ?>    
