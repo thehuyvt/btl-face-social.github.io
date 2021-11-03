@@ -18,7 +18,7 @@
       <ul class="nav ">
           <li><a href="./index.php">Face-Social</a></li>
           <li><a href="./profile.php">Profile</a></li>
-          <li><a href="./profile.php">Posts</a></li>
+          <li><a href="./posts.php">Posts</a></li>
           <li><a href="./messenger.php">Messenger</a></li>
           <li><a href="../logout.php">Sign Out</a></li>
       </ul>

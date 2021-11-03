@@ -1,8 +1,4 @@
 <?php
-     session_start();
-     if(!isset($_SESSION['loginSuccess'])){
-         header("Location:../index.php");
-     }
     include 'mheader.php';
  ?>
     <div class="container-fluid content" style="margin-top:46px; background: #ddd; padding-top:24px;">

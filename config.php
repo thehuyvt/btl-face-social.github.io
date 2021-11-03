@@ -1,5 +1,5 @@
 <?php
-    $conn = mysqli_connect('localhost', 'root', '', 'social_network');
+    $conn = mysqli_connect('localhost', 'root', '', 'face-social');
 
     if(!$conn){
         die('Kết nối csdl thất bại!');
