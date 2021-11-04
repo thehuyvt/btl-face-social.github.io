@@ -1,6 +1,5 @@
 <?php 
     include "header.php";
-    
 
 ?>
         <section class="vh-100% mt-5" style="background-color: #eee;">
@@ -15,7 +14,7 @@
                         <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
 
                         <!-- <div class="container">
-                            <p style="color:red;"></p>
+                            <p style="color:red;"><?php echo $error;?></p>
                         </div> -->
 
                         <form action="" method="post" class="mx-1 mx-md-4">
@@ -116,7 +115,7 @@
 
             if(mysqli_num_rows($result)>0){
                 //header("Location:register.php");
-                echo "Email đã được sử dụng!";
+                echo"Email đã được sử dụng!";
             }else{
                 $pass_hash = password_hash($pass1, PASSWORD_DEFAULT);
 
