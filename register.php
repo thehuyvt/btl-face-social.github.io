@@ -1,4 +1,5 @@
 <?php 
+    ob_start();
     include "header.php";
 
 ?>
@@ -126,6 +127,8 @@
                 if($result2 == 1){
                     // include 'sendemail.php';
                     echo 'Success! You can login your account!';
+                    header("Location:login.php");
+                    ob_end_flush();
                 }else{
                     echo'Lỗi!';
                 }

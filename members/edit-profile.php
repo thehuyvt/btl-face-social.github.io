@@ -12,6 +12,7 @@ ob_start();
 
         if(mysqli_num_rows($result)==1){
             $row = mysqli_fetch_assoc($result);
+            $avatar=$row['avatar'];
             $id = $row['user_id'];
             $name = $row['name'];
             $date_of_birth = $row['date_of_birth'];
@@ -25,7 +26,7 @@ ob_start();
     <div class="row">
         <div class="col-md-6 border-right">
             <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-                <img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
+                <?php echo"<img class='rounded-circle mt-5' width='150px' src='../uploads/".$avatar."'>"; ?>
                 <span class="font-weight-bold"><?php echo $name ?></span>
                 <span class="text-black-50"><?php echo $email ?></span>
                 <span></span>
@@ -37,8 +38,12 @@ ob_start();
                     <h4 class="text-right">Profile Settings</h4>
                 </div>
 
-                <form action="" method="post">
+                <form action="" method="post" enctype="multipart/form-data">
                     <div class="row mt-2">
+                    <div class="col-md-12 mb-3">
+                            <label name="avatar" class="labels">Avatar</label>
+                            <input type="file" name="avatar" class="form-control" />
+                        </div>
                         <div class="col-md-12 mb-3">
                             <label id="name" name="name" class="labels">Name</label>
                             <input type="text"id="name" name="name"  class="form-control" placeholder="Name" value="<?php echo $name; ?>"/>
@@ -75,18 +80,33 @@ ob_start();
 <?php
     
     if(isset($_POST['sbmSave'])){
+        $avatarpath=basename($_FILES['avatar']['name']);
         $uname = $_POST['name'];
         $udate_of_birth = $_POST['dateOfBirth'];
         $uemail = $_POST['email'];
         $uphone_number= $_POST['phoneNumber'];
         $uaddress = $_POST['address'];
 
-        $sql2 = "UPDATE users SET name = '$uname', date_of_birth = '$udate_of_birth', user_email='$uemail', phone_number ='$uphone_number', address ='$uaddress' WHERE user_id='$id' AND user_email='$email'";
+        //upload file
+        $target_dir = "../uploads/";
+        $target_file = $target_dir . $avatarpath;
+
+        echo $avatarpath;
+
+        if (move_uploaded_file($_FILES["avatar"]["tmp_name"], $target_file)) {
+            echo "The file ". htmlspecialchars($avatarpath). " has been uploaded.";
+          } else {
+            echo "Sorry, there was an error uploading your file.";
+          }
+
+
+        $sql2 = "UPDATE users SET name = '$uname', date_of_birth = '$udate_of_birth', user_email='$uemail', phone_number ='$uphone_number', address ='$uaddress', avatar='$avatarpath' WHERE user_id='$id' AND user_email='$email'";
 
         $result2 = mysqli_query($conn, $sql2);
 
         if($result2>0){
             header("Location:profile.php");
+            
             ob_end_flush();
         }else{
             echo 'Sửa bản ghi thất bại!';

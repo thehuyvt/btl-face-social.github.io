@@ -10,6 +10,7 @@
         $result = mysqli_query($conn, $sql);
         if(mysqli_num_rows($result)==1){
             $row = mysqli_fetch_assoc($result);
+            $avatar = $row['avatar'];
             $id = $row['user_id'];
             $name = $row['name'];
             $date_of_birth = $row['date_of_birth'];
@@ -24,7 +25,7 @@
     <div class="row">
         <div class="col-md-6 border-right" >
             <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-                <img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
+                <?php echo"<img class='rounded-circle mt-5' width='150px' src='../uploads/".$avatar."'>"; ?>
                 <span class="font-weight-bold"><?php echo $name?></span>
                 <span class="text-black-50"><?php echo $email?></span>
                 <span></span>
@@ -48,7 +49,6 @@
                     <a href="edit-profile.php">
                         <button class="btn btn-primary profile-button" type="button">Edit Profile</button></div>
                     </a>
-                        
             </div>
         </div>
     </div>
