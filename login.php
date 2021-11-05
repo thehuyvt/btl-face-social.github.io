@@ -64,12 +64,16 @@
                 $row = mysqli_fetch_assoc($result1);
                 $pass_hash = $row['user_pass'];
                 $id = $row['user_id'];
+                $level = $row['user_level'];
 
                 if(password_verify($pass, $pass_hash)){
 
                     $_SESSION['loginSuccess'] = $user_email;
-
-                    header("Location:./members/index.php");
+                    if($level==1){
+                        header("Location:./admin/index.php");
+                    }else{
+                        header("Location:./members/index.php");
+                    }
 
                 }else{
                     

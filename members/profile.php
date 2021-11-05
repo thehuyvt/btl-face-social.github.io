@@ -19,6 +19,7 @@
         }
         
     }
+    
     include 'mheader.php';
 ?>
     <div class="container rounded bg-white " style="border: 2px solid #ccc; margin-top:8%; box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);">
@@ -55,4 +56,7 @@
 </div>
 </div>
 </div>
-<?php include 'mfooter.php'?>
+<?php
+    mysqli_close($conn);
+    include 'mfooter.php'
+    ?>

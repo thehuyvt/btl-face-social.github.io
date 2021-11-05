@@ -3,12 +3,35 @@
     #header .mobile-menu-btn{
         display: none;
     }
+    .mcontent,
+    .edit-post{
+        max-width: 50%!important;
+    }
+
+    .mess-content{
+        margin-top: 10% !important;
+        max-width: 50%!important;
+    }
+
+
 
 }
 /* Tablet */
 @media (min-width:740px) and (max-width:1023px){
     #header .mobile-menu-btn{
         display: none;
+    }
+
+    .mcontent,
+    .edit-post{
+        max-width: 80%!important;
+        
+    }
+
+    .mess-content{
+        margin-top: 8% !important;
+        max-width: 80%!important;
+        
     }
 }
 
