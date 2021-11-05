@@ -5,22 +5,23 @@ ob_start();
         header("Location:../index.php");
     }else{
         include "../config.php";
-        $email = $_SESSION['loginSuccess'];
-        $sql = "SELECT * FROM users WHERE user_email='$email'";
+        $id = $_GET['id'];
+
+        $sql = "SELECT * FROM users WHERE user_id='$id'";
 
         $result = mysqli_query($conn, $sql);
 
         if(mysqli_num_rows($result)==1){
             $row = mysqli_fetch_assoc($result);
             $avatar=$row['avatar'];
-            $id = $row['user_id'];
             $name = $row['name'];
+            $email=$row['user_email'];
             $date_of_birth = $row['date_of_birth'];
             $phone_number = $row['phone_number'];
             $address = $row['address'];
         }
     }
-    include 'mheader.php';
+    include 'aheader.php';
 ?>
     <div class="container rounded bg-white" style="border: 2px solid #ccc;margin-top:8%; box-shadow:0 0 10px rgba(0, 0, 0, 0.3); ">
     <div class="row">
@@ -103,7 +104,7 @@ ob_start();
         $result2 = mysqli_query($conn, $sql2);
 
         if($result2>0){
-            header("Location:profile.php");
+            header("Location:list-users.php");
             
             ob_end_flush();
         }else{
@@ -112,4 +113,4 @@ ob_start();
     }
     mysqli_close($conn);
 ?>
-<?php include 'mfooter.php'?>
+<?php include 'afooter.php'?>

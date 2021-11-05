@@ -23,8 +23,8 @@
 
                         <form action="" method = "post">
                             <div class="form-outline mb-4">
-                                <label class="form-label" for="userName">User Name</label>
-                                <input type="text" id="userName" name = "userName"class="form-control form-control-lg" />
+                                <label class="form-label" for="userEmail">Email</label>
+                                <input type="text" id="userEmail" name = "userEmail"class="form-control form-control-lg" />
                             </div>
 
                             <div class="form-outline mb-4">
@@ -54,21 +54,26 @@
         include 'config.php';
 
         if(isset($_POST['sbmLogin'])){
-            $user_name = $_POST['userName'];
+            $user_email = $_POST['userEmail'];
             $pass = $_POST['pass'];
 
-            $sql1 = "SELECT * FROM users WHERE user_name = '$user_name'";
+            $sql1 = "SELECT * FROM users WHERE user_email = '$user_email'";
             $result1 = mysqli_query($conn, $sql1);
 
             if(mysqli_num_rows($result1)>0){
                 $row = mysqli_fetch_assoc($result1);
                 $pass_hash = $row['user_pass'];
+                $id = $row['user_id'];
+                $level = $row['user_level'];
 
                 if(password_verify($pass, $pass_hash)){
 
-                    $_SESSION['loginSuccess'] = $user_name;
-
-                    header("Location:./members/index.php");
+                    $_SESSION['loginSuccess'] = $user_email;
+                    if($level==1){
+                        header("Location:./admin/index.php");
+                    }else{
+                        header("Location:./members/index.php");
+                    }
 
                 }else{
                     
