@@ -14,7 +14,7 @@
     }
     include 'mheader.php';
 ?>
-    <div class="container-fluid content" style="margin-top:46px; background: #f0f2f5; padding-top:24px; padding-bottom:24px;">
+    <div class="container-fluid content" style=" margin-top:46px; background: #f0f2f5; padding-top:24px; padding-bottom:24px;">
         <?php
             echo "<h3 class='mb-5'>Welcome ".$user_name." to Face-Social!</h3>";
             
@@ -30,7 +30,7 @@
                     $post_id = $row2['post_id'];
 
 
-                    echo "<div class='container col-12 mcontent' style='background-color:#fff; border-radius:0.5rem; padding: 20px; margin-bottom:16px;'>";
+                    echo "<div class='container col-12 mcontent' style='background-color:#fff; border-radius:0.5rem; padding: 20px; margin-bottom:16px;box-shadow: 0 0 3px rgba(0,0,0,0.4);'>";
                         echo "<div class='infor_user' style='margin-left:0; font-weight:600; margin-bottom:16px;'>";
                             echo"<img src='../uploads/".$avatar."' width='50px'  alt='avatar'style='display:inline-block; border-radius:50%;margin-right:16px; max-height: 50px; box-shadow: 0 0 4px rgba(0,0,0,0.2);'>".$name."";
                         echo " </div>";
